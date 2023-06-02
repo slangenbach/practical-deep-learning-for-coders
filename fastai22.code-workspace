@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../chemical-or-power"
+		}
+	],
+	"settings": {
+		"ansible.python.interpreterPath": "/home/ubuntu/miniconda/envs/fastai/bin/python"
+	}
+}

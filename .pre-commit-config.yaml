@@ -1,0 +1,96 @@
+---
+default_language_version:
+  python: python3
+fail_fast: false
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: trailing-whitespace
+        args: [--markdown-linebreak-ext=md]
+        stages:
+          - commit
+
+      - id: end-of-file-fixer
+        stages:
+          - commit
+
+      - id: mixed-line-ending
+        stages:
+          - commit
+
+      - id: check-json
+        stages:
+          - commit
+
+      - id: pretty-format-json
+        stages:
+          - commit
+        args:
+          - --autofix
+          - --indent
+          - "4"
+          - --no-sort-keys
+
+      - id: check-yaml
+        stages:
+          - commit
+
+      - id: check-toml
+        stages:
+          - commit
+
+      - id: check-case-conflict
+        stages:
+          - commit
+
+      - id: check-added-large-files
+        stages:
+          - commit
+
+      - id: check-merge-conflict
+        stages:
+          - commit
+
+  - repo: local
+    hooks:
+      - id: ruff
+        name: ruff
+        stages:
+          - commit
+        entry: ruff
+        language: system
+        types: [python]
+        args: [--fix, --exit-non-zero-on-fix]
+
+      - id: nbqa-ruff
+        name: nbqa-ruff
+        entry: nbqa ruff
+        language: system
+        files: \.ipynb$
+        args: [--fix, --exit-non-zero-on-fix]
+
+      - id: black
+        name: black
+        stages:
+          - commit
+        entry: black
+        language: system
+        types: [python]
+
+      - id: nbqa-black
+        name: nbqa-black
+        entry: nbqa black
+        language: system
+        files: \.ipynb$
+
+      - id: nbconvert
+        name: nbconvert
+        stages:
+          - commit
+        entry: jupyter nbconvert
+        args:
+          - --clear-output
+          - --inplace
+        language: system
+        files: \.ipynb$
