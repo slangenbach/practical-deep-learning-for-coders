@@ -163,3 +163,4 @@ cython_debug/
 *.jpg
 models/
 chemical_or_not/
+.ruff_cache/
