@@ -5,9 +5,23 @@
 		},
 		{
 			"path": "../chemical-or-power"
+		},
+		{
+			"path": "../course22"
 		}
 	],
 	"settings": {
 		"ansible.python.interpreterPath": "/home/ubuntu/miniconda/envs/fastai/bin/python"
+	},
+	"tasks": {
+		"version": "2.0.0",
+		"tasks": [
+			{
+				"label": "Export conda environment",
+				"type": "shell",
+				"command": "conda env export --name fastai --no-builds --file conda_env.yaml",
+				"problemMatcher": []
+			}
+		]
 	}
 }
