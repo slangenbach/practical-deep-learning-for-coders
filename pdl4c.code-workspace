@@ -19,7 +19,7 @@
 			{
 				"label": "Export conda environment",
 				"type": "shell",
-				"command": "conda env export --name fastai --no-builds --file conda_env.yaml",
+				"command": "conda env export --name pdl4c --no-builds --file conda_env.yaml",
 				"problemMatcher": []
 			}
 		]
